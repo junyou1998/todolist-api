@@ -22,10 +22,9 @@ class TodoController extends Controller
        return response()->json($todo,201);
     }
 
-    public function update(Request $request, Todo $todo)
+    public function update(Request $request,$todo_id)
     {
-        $todo->update($request->all());
-
+        $todo = Todo::where('id',$todo_id)->update($request->all());
         return response()->json($todo, 200);
     }
 
